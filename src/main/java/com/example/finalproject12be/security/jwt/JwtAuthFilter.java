@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.example.finalproject12be.domain.member.dto.response.ErrorResponse;
-import com.example.finalproject12be.domain.member.repository.MemberRepository;
 import com.example.finalproject12be.exception.ErrorCode;
 import com.example.finalproject12be.exception.TokenErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;

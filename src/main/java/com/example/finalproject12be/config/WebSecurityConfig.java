@@ -30,14 +30,6 @@ public class WebSecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Bean//(1) securityFilterChain 보다 우선적으로 적용되는 Security 설정
-	public WebSecurityCustomizer webSecurityCustomizer() {
-
-		return (web) -> web.ignoring()
-			.requestMatchers(PathRequest.toH2Console())
-			.requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-	}
-
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -57,6 +49,4 @@ public class WebSecurityConfig {
 			.anonymous().disable()
 			.build();
 	}
-
-
 }
