@@ -47,6 +47,7 @@ public class WebSecurityConfig {
 			.authorizeHttpRequests(auth -> auth
 				.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 				.antMatchers("/user/**").permitAll()
+				.antMatchers("/api/store/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
