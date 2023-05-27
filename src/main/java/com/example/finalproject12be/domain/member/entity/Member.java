@@ -28,6 +28,14 @@ public class Member {
 	@Column(nullable = false)
 	private String nickname;
 
+	public Member(String email, String password, String nickname) {
+		this.email = email;
+		this.password = password;
+		this.nickname = nickname;
+	}
 
+	public static Member of(String email, String password, String nickname) {
+		return new Member(email, password, nickname);
+	}
 
 }
