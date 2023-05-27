@@ -24,7 +24,7 @@ public class CommentResponseDto {
     public CommentResponseDto(Comment comment) {
         this.commentId = comment.getId();
         this.memberId = comment.getMember().getId();
-        this.storeId = comment.getStore().getStoreId();
+        this.storeId = comment.getStore().getId();
         this.nickname = comment.getNickname();
         this.contents = comment.getContents();
         this.check = false; // 기본값으로 false 설정
@@ -34,7 +34,7 @@ public class CommentResponseDto {
     public CommentResponseDto(Comment comment, Boolean check) {
         this.commentId = comment.getId();
         this.memberId = comment.getMember().getId();
-        this.storeId = comment.getStore().getStoreId();
+        this.storeId = comment.getStore().getId();
         this.nickname = comment.getNickname();
         this.contents = comment.getContents();
         this.check = check;
