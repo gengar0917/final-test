@@ -26,7 +26,7 @@ public class StoreResponseDto {
 	private boolean like = false;
 
 	public StoreResponseDto(Store store) {
-		this.storeId = store.getStoreId();
+		this.storeId = store.getId();
 		this.address = store.getAddress();
 		this.name = store.getName();
 		this.callNumber = store.getCallNumber();
