@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 REPOSITORY=/home/ubuntu/finalproject12Be
-REPOSITORY1=/home/ubuntu
 cd $REPOSITORY
 
 APP_NAME=finalproject12Be
@@ -21,4 +20,4 @@ else
 fi
 
 echo "> Deploy - $JAR_PATH"
-nohup java -jar /home/ubuntu/finalproject12Be/build/libs/finalproject12Be-0.0.1-SNAPSHOT.jar > $REPOSITORY1/nohup.out 2>&1 &**
+nohup java -jar $JAR_PATH > $REPOSITORY/nohup.out 2>&1 &
