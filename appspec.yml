@@ -3,12 +3,12 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ubuntu/finalproject-12BE
+    destination: /home/ubuntu/finalproject12BE
     overwrite : yes
 file_exists_behavior: OVERWRITE
 
 permissions:
-  - object: /home/ubuntu/finalproject-12BE
+  - object: /home/ubuntu/finalproject12BE
     pattern : "**"
     owner: ubuntu
     group: ubuntu
