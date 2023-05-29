@@ -39,7 +39,7 @@ public class CommentController {
             @PathVariable("store-id") Long storeId,
             @Valid @RequestBody CommentRequestDto commentRequestDto,
             @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return commentService.createComment(commentRequestDto, userDetails.getMember(), storeId);
+        return commentService.createComment(commentRequestDto, userDetails, storeId);
     }
 
     // 댓글 조회
