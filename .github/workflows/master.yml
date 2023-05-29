@@ -78,24 +78,24 @@ jobs:
           echo "> Deploy - $JAR_PATH "
           nohup java -jar $JAR_PATH > /dev/null 2> /dev/null < /dev/null &
 
-  version: 0.0
-  os: linux
-
-  files:
-    - source: /
-      destination: /home/ubuntu/finalproject-12BE
-      overwrite: yes
-
-  file_exists_behavior: OVERWRITE
-
-  permissions:
-    - object: /home/ubuntu/finalproject-12BE
-      pattern: "**"
-      owner: ubuntu
-      group: ubuntu
-
-  hooks:
-    ApplicationStart:
-      - location: scripts/gh_deploy.sh
-        timeout: 60
-        runas: ubuntu
+#  version: 0.0
+#  os: linux
+#
+#  files:
+#    - source: /
+#      destination: /home/ubuntu/finalproject-12BE
+#      overwrite: yes
+#
+#  file_exists_behavior: OVERWRITE
+#
+#  permissions:
+#    - object: /home/ubuntu/finalproject-12BE
+#      pattern: "**"
+#      owner: ubuntu
+#      group: ubuntu
+#
+#  hooks:
+#    ApplicationStart:
+#      - location: scripts/gh_deploy.sh
+#        timeout: 60
+#        runas: ubuntu
