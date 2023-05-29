@@ -7,7 +7,7 @@ APP_NAME=finalproject-12BE
 JAR_NAME=$(ls $REPOSITORY/build/libs/ | grep 'SNAPSHOT.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
 
-CURRENT_PID=$(pgrep -fl $APP_NAME | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl $APP_NAME | grep java | awk '{print $1}')
 
 if [ -z $CURRENT_PID ]
 then
