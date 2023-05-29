@@ -6,7 +6,7 @@ cd $REPOSITORY
 
 APP_NAME=finalproject12Be
 JAR_NAME=finalproject12Be-0.0.1-SNAPSHOT.jar
-JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
+JAR_PATH=$REPOSITORY/build/libs/finalproject12Be-0.0.1-SNAPSHOT.jar
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 CURRENT_PID=$(pgrep -fl $APP_NAME | grep java | awk '{print $1}')
@@ -21,4 +21,4 @@ else
 fi
 
 echo "> Deploy - $JAR_PATH"
-nohup java -jar $JAR_PATH > $REPOSITORY1/nohup.out 2>&1 &**
+nohup java -jar /home/ubuntu/finalproject12Be/build/libs/finalproject12Be-0.0.1-SNAPSHOT.jar > $REPOSITORY1/nohup.out 2>&1 &**
