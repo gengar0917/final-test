@@ -9,11 +9,12 @@ file_exists_behavior: OVERWRITE
 
 permissions:
   - object: /home/ubuntu/finalproject-12BE
-
+    pattern : "**"
     owner: ubuntu
     group: ubuntu
+
 hooks:
-  AfterInstall:
-    - location: scripts/deploy.sh
+  ApplicationStart:
+    - location: scripts/gh_deploy.sh
       timeout: 60
       runas: ubuntu
