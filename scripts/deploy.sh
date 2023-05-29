@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-REPOSITORY=/home/ubuntu/finalproject12be
+REPOSITORY=/home/ubuntu/finalproject12Be
 cd $REPOSITORY
 
-APP_NAME=finalproject12be
-JAR_NAME=$(ls $REPOSITORY/build/libs/ | grep 'SNAPSHOT.jar' | tail -n 1)
+APP_NAME=finalproject12Be
+JAR_NAME=finalproject12Be-0.0.1-SNAPSHOT.jar
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
 
 CURRENT_PID=$(pgrep -f $APP_NAME)
