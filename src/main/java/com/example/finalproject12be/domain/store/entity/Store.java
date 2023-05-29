@@ -57,7 +57,6 @@ public class Store {
 	@JoinColumn(name = "BOOKMARK_ID")
 	private Bookmark bookmark;
 
-
 	public Store(String address, String name, String callNumber, String weekdaysTime, String saturdayTime, String sundayTime, String holidayTime, String longitude, String latitude){
 		this.address = address;
 		this.name = name;
