@@ -3,11 +3,11 @@
 REPOSITORY=/home/ubuntu/finalproject12be
 cd $REPOSITORY
 
-APP_NAME=finalproject12Be
+APP_NAME=finalproject12be
 JAR_NAME=$(ls $REPOSITORY/build/libs/ | grep 'SNAPSHOT.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
 
-CURRENT_PID=$(pgrep -fl $APP_NAME | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -f $APP_NAME)
 
 if [ -z $CURRENT_PID ]
 then
