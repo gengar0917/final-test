@@ -42,14 +42,14 @@ public class CommentService {
     // 댓글 생성 api명세서에 맞춰서 코드 내려주기
     @Transactional
     public ResponseMsgDto<CommentResponseDto> createComment(CommentRequestDto commentRequestDto,
-                                                            Member member,
+                                                            UserDetailsImpl userDetails,
                                                             Long storeId) {
         // 게시글 검증
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new RuntimeException("Store not found"));
 
         // 댓글 생성
-        Comment comment = new Comment(commentRequestDto, store, member);
+        Comment comment = new Comment(commentRequestDto, store, userDetails.getMember());
         commentRepository.save(comment);
 
         // 응답 생성
