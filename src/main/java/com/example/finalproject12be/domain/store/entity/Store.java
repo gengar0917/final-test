@@ -2,10 +2,15 @@ package com.example.finalproject12be.domain.store.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.UniqueConstraint;
+
+import com.example.finalproject12be.domain.bookmark.entity.Bookmark;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,6 +53,10 @@ public class Store {
 	@Column
 	private String latitude;
 
+	@OneToOne
+	@JoinColumn(name = "BOOKMARK_ID")
+	private Bookmark bookmark;
+
 
 	public Store(String address, String name, String callNumber, String weekdaysTime, String saturdayTime, String sundayTime, String holidayTime, String longitude, String latitude){
 		this.address = address;
@@ -59,5 +68,9 @@ public class Store {
 		this.holidayTime = holidayTime;
 		this.longitude = longitude;
 		this.latitude = latitude;
+	}
+
+	public void setBookmark(Bookmark bookmark){
+		this.bookmark = bookmark;
 	}
 }

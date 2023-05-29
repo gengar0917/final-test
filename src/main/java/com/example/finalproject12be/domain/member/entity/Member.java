@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.example.finalproject12be.domain.bookmark.entity.Bookmark;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +32,10 @@ public class Member {
 	@Column(nullable = false)
 	private String nickname;
 
+	@ManyToOne
+	@JoinColumn(name = "BOOKMARK_ID")
+	private Bookmark bookmark;
+
 	public Member(String email, String password, String nickname) {
 		this.email = email;
 		this.password = password;
@@ -38,4 +46,7 @@ public class Member {
 		return new Member(email, password, nickname);
 	}
 
+	public void setBookmark(Bookmark bookmark){
+		this.bookmark = bookmark;
+	}
 }
