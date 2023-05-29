@@ -11,7 +11,7 @@ env:
   BUCKET_NAME: odimedi-cicd-bucket
   CODE_DEPLOY_APP_NAME: odimedi_CICD
   DEPLOYMENT_GROUP_NAME: odimedi_instance
-
+ls
 jobs:
   deploy:
     runs-on: ubuntu-latest
