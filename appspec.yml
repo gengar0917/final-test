@@ -5,16 +5,16 @@ files:
   - source: /
     destination: /home/ubuntu/finalproject12Be
     overwrite : yes
-file_exists_behavior: OVERWRITE
+
 
 permissions:
-  - object: /home/ubuntu/finalproject12Be
+  - object: /
     pattern : "**"
     owner: ubuntu
     group: ubuntu
 
 hooks:
   ApplicationStart:
-    - location: scripts/deploy.sh
+    - location: deploy.sh
       timeout: 60
       runas: ubuntu
