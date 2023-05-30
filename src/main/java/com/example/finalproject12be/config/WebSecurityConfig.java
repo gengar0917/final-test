@@ -29,7 +29,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfig {
 
 	 private final JwtAuthFilter jwtAuthFilter;
-
+	 private final JwtUtil jwtUtil;
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -37,24 +37,20 @@ public class WebSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.cors().and()
+				.csrf().disable();
 
-		return http
-			.csrf().disable()
-			.httpBasic().disable()
-			.formLogin().disable()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-			.and()
-			.authorizeHttpRequests(auth -> auth
-				.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+		// 기본 설정인 Session 방식은 사용하지 않고 JWT 방식을 사용하기 위한 설정
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+		http.authorizeRequests()
 				.antMatchers("/user/**").permitAll()
 				.antMatchers("/api/store/**").permitAll()
 				.anyRequest().authenticated()
-				.and()
-				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-			)
-			.anonymous().disable()
-			.build();
+				// JWT 인증/인가를 사용하기 위한 설정
+				.and().addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
+		return http.build();
 
 	}
 	@Bean
